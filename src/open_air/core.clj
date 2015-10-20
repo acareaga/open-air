@@ -1,6 +1,10 @@
-(ns open-air.core)
+(ns open-air.core
+  (:require [cheshire.core :as json]
+             [clj-http.client :as http]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(def base-url "http://playlist.cprnetwork.org/api/playlistCO?n=")
+
+(defn current-tracks-url []
+  (str base-url (System/currentTimeMillis)))
+
+(current-tracks-url)
