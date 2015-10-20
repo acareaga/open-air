@@ -8,3 +8,12 @@
   (str base-url (System/currentTimeMillis)))
 
 (current-tracks-url)
+
+(defn current-tracks []
+  (json/parse-string
+   (:body
+    (http/get (current-tracks-url)))))
+
+(def sample-tracks (current-tracks))
+
+(first sample-tracks)
