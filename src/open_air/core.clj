@@ -22,3 +22,5 @@
 
 (def sample-tracks (current-tracks))
 (first (format-tracks sample-tracks))
+
+# can we match album/song id's or search by artist/song?
