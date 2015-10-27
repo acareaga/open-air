@@ -20,7 +20,18 @@
 (defn format-tracks [tracks]
   (map format-track tracks))
 
-(def sample-tracks (current-tracks))
-(first (format-tracks sample-tracks))
+(def rdio-base-url "https://services.rdio.com/api/1/")
 
-# can we match album/song id's or search by artist/song?
+# dev app key
+(defn consumer-key "p23lzdbzrngozekh4fzs5nvzku")
+(defn consumer-secret "VvoFmmUmA4AUBcknbzuBJA")
+(defn token "Bearer") # need to add oauth code
+
+(defn rdio-query [params]
+  (http/post
+    ( str rdio-base-url "search"
+    { :query-params { "query" query
+                      "method" "search"
+                      "types" "track" }
+      :throw-exceptions false
+      :headers {"Authorization" token }}))
