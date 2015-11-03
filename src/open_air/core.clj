@@ -23,8 +23,8 @@
 (def rdio-base-url "https://services.rdio.com/api/1/")
 
 # dev app key
-(defn consumer-key "p23lzdbzrngozekh4fzs5nvzku")
-(defn consumer-secret "VvoFmmUmA4AUBcknbzuBJA")
+(defn consumer-key "z47detwiazasnfqqkvr2lxjvce")
+(defn consumer-secret "BDFsBoy1BII0FdqRJR7E3Q")
 (defn token "Bearer") # need to add oauth code
 
 (defn rdio-query [params]
@@ -35,3 +35,8 @@
                       "types" "track" }
       :throw-exceptions false
       :headers {"Authorization" token }}))
+
+
+; 1 - find all recent tracks
+; 2 - create a playlist for today
+; 3 - add tracks for today
